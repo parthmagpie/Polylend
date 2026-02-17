@@ -1,0 +1,39 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+solc = "0.8.24"
+optimizer = true
+optimizer_runs = 200
+via_ir = true
+ffi = false
+fs_permissions = []
+
+[profile.default.fuzz]
+runs = 256
+max_test_rejects = 65536
+seed = "0x3e8"
+dictionary_weight = 40
+include_storage = true
+include_push_bytes = true
+
+[profile.ci.fuzz]
+runs = 10000
+
+[rpc_endpoints]
+polygon = "${POLYGON_RPC_URL}"
+polygon_mainnet = "https://polygon-rpc.com"
+
+[etherscan]
+polygon = { key = "${POLYGONSCAN_API_KEY}", url = "https://api.polygonscan.com/api" }
+
+[fmt]
+bracket_spacing = true
+int_types = "long"
+line_length = 120
+multiline_func_header = "params_first"
+number_underscore = "thousands"
+quote_style = "double"
+single_line_statement_blocks = "preserve"
+tab_width = 4
+wrap_comments = true
